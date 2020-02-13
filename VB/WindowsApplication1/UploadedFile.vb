@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data
@@ -46,7 +45,7 @@ Namespace WindowsApplication1
 		Private Sub ReadFile(ByVal filePath As String)
 			Using stream As New FileStream(filePath, FileMode.Open)
 				_File = New Byte(stream.Length - 1){}
-				stream.Read(FileContent, 0, CInt(Fix(stream.Length)))
+				stream.Read(FileContent, 0, CInt(stream.Length))
 				stream.Close()
 			End Using
 		End Sub
@@ -57,10 +56,11 @@ Namespace WindowsApplication1
 			writeStream.Close()
 		End Sub
 
-		Private Function GetContent(ByVal fileContent As FileStream) As Byte()
+'INSTANT VB NOTE: The variable fileContent was renamed since Visual Basic does not handle local variables named the same as class members well:
+		Private Function GetContent(ByVal fileContent_Conflict As FileStream) As Byte()
 			Dim result(FileSize - 1) As Byte
-			fileContent.Read(result, 0, CInt(Fix(FileSize)))
-			fileContent.Close()
+			fileContent_Conflict.Read(result, 0, CInt(FileSize))
+			fileContent_Conflict.Close()
 			Return result
 		End Function
 
@@ -84,10 +84,11 @@ Namespace WindowsApplication1
 		End Sub
 
 
-		Public Sub New(ByVal content() As Byte, ByVal fileName As String)
-			_FullPath = tempDirectory & fileName
+'INSTANT VB NOTE: The variable fileName was renamed since Visual Basic does not handle local variables named the same as class members well:
+		Public Sub New(ByVal content() As Byte, ByVal fileName_Conflict As String)
+			_FullPath = tempDirectory & fileName_Conflict
 			WriteFile(FullPath, content)
-			_FileName = fileName
+			_FileName = fileName_Conflict
 
 		End Sub
 	End Class

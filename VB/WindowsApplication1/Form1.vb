@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data
@@ -12,17 +11,14 @@ Imports System.Diagnostics
 Namespace WindowsApplication1
 	Partial Public Class Form1
 		Inherits Form
+
 		Private tbl As DataTable
 
 		Private helper As UploadHelper
 
 		Public ReadOnly Property CurrentFile() As UploadedFile
 			Get
-				If helper Is Nothing Then
-					Return Nothing
-				Else
-					Return helper.CurrentFile
-				End If
+				Return If(helper Is Nothing, Nothing, helper.CurrentFile)
 			End Get
 		End Property
 
@@ -65,7 +61,7 @@ Namespace WindowsApplication1
 				helper.PostNewFile(-1)
 				Return GetFocusedFile()
 			End If
-			Return New UploadedFile(CType(dataRow("FileContent"), Byte()), CStr(dataRow("FileName")))
+			Return New UploadedFile(DirectCast(dataRow("FileContent"), Byte()), DirectCast(dataRow("FileName"), String))
 		End Function
 
 		Private Sub repositoryItemButtonEdit1_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs)

@@ -1,6 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
-Namespace WindowsApplication1
+﻿Namespace WindowsApplication1
 	Partial Public Class Form1
 		''' <summary>
 		''' Required designer variable.
@@ -64,7 +62,7 @@ Namespace WindowsApplication1
 			Me.gridView1.GridControl = Me.gridControl1
 			Me.gridView1.Name = "gridView1"
 			Me.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
-			Me.gridView1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways
+			Me.gridView1.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways
 			' 
 			' gridColumn1
 			' 
@@ -79,7 +77,11 @@ Namespace WindowsApplication1
 			' repositoryItemButtonEdit1
 			' 
 			Me.repositoryItemButtonEdit1.AutoHeight = False
-			Me.repositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() { New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Open", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", Nothing, Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Upload new file..", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", Nothing, Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", Nothing, Nothing, True)})
+			Me.repositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {
+				New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Open", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", Nothing, Nothing, True),
+				New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Upload new file..", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", Nothing, Nothing, True),
+				New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", Nothing, Nothing, True)
+			})
 			Me.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1"
 			Me.repositoryItemButtonEdit1.ReadOnly = True
 			' 
@@ -117,7 +119,8 @@ Namespace WindowsApplication1
 			Me.btUploadFile.Size = New System.Drawing.Size(111, 23)
 			Me.btUploadFile.TabIndex = 2
 			Me.btUploadFile.Text = "Upload Now"
-'			Me.btUploadFile.Click += New System.EventHandler(Me.btUploadFile_Click);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.btUploadFile.Click += new System.EventHandler(this.btUploadFile_Click);
 			' 
 			' hyperLinkEdit1
 			' 
@@ -135,7 +138,8 @@ Namespace WindowsApplication1
 			Me.btOpenFile.Size = New System.Drawing.Size(111, 23)
 			Me.btOpenFile.TabIndex = 0
 			Me.btOpenFile.Text = "Choose file.."
-'			Me.btOpenFile.Click += New System.EventHandler(Me.btOpenFile_Click);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.btOpenFile.Click += new System.EventHandler(this.btOpenFile_Click);
 			' 
 			' Form1
 			' 

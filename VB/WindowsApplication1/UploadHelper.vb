@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data
@@ -24,8 +23,9 @@ Namespace WindowsApplication1
 		End Property
 
 
-		Public Sub New(ByVal dataSource As DataTable)
-			_DataSource = dataSource
+'INSTANT VB NOTE: The variable dataSource was renamed since Visual Basic does not handle local variables named the same as class members well:
+		Public Sub New(ByVal dataSource_Conflict As DataTable)
+			_DataSource = dataSource_Conflict
 		End Sub
 
 		Private _CurrentFile As UploadedFile
@@ -49,7 +49,7 @@ Namespace WindowsApplication1
 		Public Sub UploadFile(ByVal dataSourceRowIndex As Integer)
 			If CurrentFile IsNot Nothing Then
 				Dim values() As Object = { CurrentFile.FileName, CurrentFile.FileSize, CurrentFile.FileContent }
-				If dataSourceRowIndex = -1 Then
+				If dataSourceRowIndex < -1 Then
 					DataSource.Rows.Add(values)
 				Else
 					DataSource.Rows(dataSourceRowIndex).ItemArray = values

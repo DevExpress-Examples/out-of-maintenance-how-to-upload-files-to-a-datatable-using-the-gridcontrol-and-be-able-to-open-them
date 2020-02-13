@@ -49,7 +49,7 @@ namespace WindowsApplication1
             if (CurrentFile != null)
             {
                 object[] values = new object[] { CurrentFile.FileName, CurrentFile.FileSize, CurrentFile.FileContent };
-                if (dataSourceRowIndex == -1)
+                if (dataSourceRowIndex < -1)
                     DataSource.Rows.Add(values);
                 else
                     DataSource.Rows[dataSourceRowIndex].ItemArray = values;
